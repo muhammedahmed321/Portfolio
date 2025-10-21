@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project View - Electronics Store Website</title>
+  <style>
+    /* --------------------------------
+     * GLOBAL STYLES
+     * -------------------------------- */
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: white;
+      font-weight: 700;
+    }
+
+    /* --------------------------------
+     * HEADER
+     * -------------------------------- */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #1a1a1a;
+      flex-wrap: wrap;
+    }
+
+    .header .logo {
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 24px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 5px 0;
+      transition: color 0.3s;
+      font-size: 16px;
+    }
+
+    .nav-links .active,
+    .nav-links a:hover {
+      color: #ff4d4d;
+    }
+
+    .contact-btn {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* --------------------------------
+     * PROJECT VIEW STYLES
+     * -------------------------------- */
+    .project-container {
+      padding: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-header {
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 20px;
+    }
+
+    .project-title {
+      font-size: 38px;
+      margin-bottom: 5px;
+    }
+
+    .project-tagline {
+      font-size: 18px;
+      color: #cccccc;
+    }
+
+    .project-meta span {
+      display: block;
+      font-size: 14px;
+      color: #999999;
+      margin-top: 5px;
+    }
+
+    /* --- Content Grid Layout --- */
+    .project-content-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 40px;
+    }
+
+    /* --- Gallery/Image Styles --- */
+    .project-gallery h2 {
+      font-size: 26px;
+      margin-top: 0;
+    }
+
+    .main-image-wrapper {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 14px;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+
+    .main-screenshot {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    .thumbnail-gallery {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .thumbnail-gallery img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 5px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s, transform 0.2s;
+    }
+
+    .thumbnail-gallery img.active {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* --- Detail Section Styles --- */
+    .project-details h2 {
+      font-size: 26px;
+      margin-top: 0;
+    }
+
+    .project-details h3 {
+      font-size: 20px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: #ff4d4d;
+    }
+
+    .project-details ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .project-details li {
+      margin-bottom: 8px;
+      color: #cccccc;
+    }
+
+    /* --- Button Styles --- */
+    .action-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .live-link-btn,
+    .github-link-btn {
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .live-link-btn {
+      background-color: #ff4d4d;
+      color: white;
+    }
+
+    .live-link-btn:hover {
+      background-color: #e63939;
+    }
+
+    .github-link-btn {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .github-link-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* --------------------------------
+     * RESPONSIVE DESIGN
+     * -------------------------------- */
+    @media (max-width: 1024px) {
+      .project-content-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .project-title {
+        font-size: 32px;
+      }
+
+      .project-tagline {
+        font-size: 17px;
+      }
+
+      .header {
+        padding: 15px 20px;
+      }
+
+      .contact-btn {
+        margin-top: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 25px;
+      }
+
+      .main-image-wrapper {
+        padding: 10px;
+      }
+
+      .thumbnail-gallery img {
+        width: 85px;
+        height: 60px;
+      }
+
+      .nav-links a {
+        font-size: 15px;
+        margin: 5px;
+      }
+
+      .project-title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .thumbnail-gallery {
+        justify-content: center;
+      }
+
+      .thumbnail-gallery img {
+        width: 80px;
+        height: 55px;
+      }
+
+      .live-link-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a href="#" class="logo">M.Ahmed.Dev</a>
+    <nav class="nav-links">
+      <a href="index2.html#home">Home</a>
+      <a href="index2.html#projects" class="active">Projects</a>
+      <a href="index2.html#services">Services</a>
+      <a href="index2.html#about">About</a>
+    </nav>
+        <button class="contact-btn" onclick="window.location.href='index2.html#contact';">
+  Contact Us
+</button>
+  </header>
+
+  <main class="project-container">
+    <div class="project-header">
+      <h1 class="project-title">Electronics Store Website – HTML, CSS & Bootstrap</h1>
+      <p class="project-tagline">
+        A clean and responsive static website for an electronics store, built
+        using HTML, CSS, and Bootstrap with a focus on layout, product sections,
+        and mobile compatibility.
+      </p>
+      <div class="project-meta">
+        <span>**Tech Stack:** HTML, CSS & Bootstrap</span>
+      </div>
+    </div>
+
+    <div class="project-content-grid">
+      <section class="project-gallery">
+        <h2>Screenshots & Demos</h2>
+        <div class="main-image-wrapper">
+          <img
+            src="images/Screenshot 2025-07-16 134849.png"
+            alt="Project Main View"
+            class="main-screenshot"
+          />
+        </div>
+
+        <div class="thumbnail-gallery">
+          <img
+            src="images/Screenshot 2025-07-16 004808.png"
+            alt="Thumbnail 1"
+            class="active"
+          />
+          <img
+            src="images/Screenshot 2025-07-16 134140.png"
+            alt="Thumbnail 2"
+          />
+          <!-- <img
+            src="images/screencapture-iglasslondon-co-uk-product-offset-chartwell-green-french-doors-made-to-measure-2025-10-10-05_20_12.png"
+            alt="Thumbnail 3"
+          /> -->
+        </div>
+
+        <div class="action-buttons">
+          <a href="" class="live-link-btn"
+            >🚀 View Live Project</a
+          >
+        </div>
+      </section>
+
+      <section class="project-details">
+        <h2>Project Overview</h2>
+        <p>
+          I designed and developed a responsive electronics eCommerce website
+          using HTML, CSS, and Bootstrap. The site features a modern layout
+          where users can explore and shop for mobile phones, laptops, and
+          wireless earbuds.
+        </p>
+
+        <h3>Key Features</h3>
+        <ul>
+          <li>Fully responsive design for mobile, tablet, and desktop</li>
+          <li>Product listing sections for different categories</li>
+          <li>Clean layout with Bootstrap components</li>
+          <li>Custom styling with CSS for a unique look</li>
+          <li>Homepage, product pages, and contact section included</li>
+        </ul>
+
+        <h3>Challenges & Solutions</h3>
+        <p>
+          A primary challenge was ensuring a fully responsive layout across all
+          devices — solved using Bootstrap grid and custom media queries.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    const mainImage = document.querySelector(".main-screenshot");
+    const thumbnails = document.querySelectorAll(".thumbnail-gallery img");
+
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", () => {
+        mainImage.style.opacity = "0";
+        setTimeout(() => {
+          mainImage.src = thumbnail.src;
+          mainImage.style.opacity = "1";
+        }, 200);
+
+        thumbnails.forEach((img) => img.classList.remove("active"));
+        thumbnail.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>

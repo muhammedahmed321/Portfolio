@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project View - [Project Name]</title>
+    <style>
+    /* --------------------------------
+ * GLOBAL & THEME STYLES (Matching Portfolio)
+ * --------------------------------
+*/
+body {
+    background-color: #121212; /* Dark background */
+    color: white; /* Light text */
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: white;
+    font-weight: 700;
+}
+
+/* --------------------------------
+ * HEADER STYLES (Copied from previous example)
+ * --------------------------------
+*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #1a1a1a; /* Slightly darker header */
+}
+
+.header .logo {
+    color: white;
+    font-weight: 800;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.nav-links .active,
+.nav-links a:hover {
+    color: #ff4d4d; /* Use a red/accent color for active/hover */
+}
+
+.contact-btn {
+    background-color: #ff4d4d; /* Red button background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+/* --------------------------------
+ * PROJECT VIEW SPECIFIC STYLES
+ * --------------------------------
+*/
+.project-container {
+    padding: 50px;
+    max-width: 1200px; /* Limit the width for better readability */
+    margin: 0 auto;
+}
+
+.project-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 20px;
+}
+
+.project-title {
+    font-size: 48px;
+    margin-bottom: 5px;
+}
+
+.project-tagline {
+    font-size: 20px;
+    color: #cccccc;
+}
+
+.project-meta span {
+    display: block;
+    font-size: 14px;
+    color: #999999;
+    margin-top: 5px;
+}
+
+/* --- Content Grid Layout --- */
+.project-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Image/Gallery is 2 parts, Details is 1 part */
+    gap: 40px;
+}
+
+/* --- Gallery/Image Styles --- */
+.project-gallery h2 {
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.main-image-wrapper {
+    /* Using the card styling for the main image wrapper */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 14px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.main-screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.thumbnail-gallery img {
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.thumbnail-gallery img:hover {
+    opacity: 1;
+}
+
+/* --- Detail Section Styles --- */
+.project-details h2 {
+    font-size: 28px;
+    margin-top: 0;
+}
+
+.project-details h3 {
+    font-size: 20px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #ff4d4d; /* Use the accent color for sub-headings */
+}
+
+.project-details ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+.project-details li {
+    margin-bottom: 8px;
+    color: #cccccc;
+}
+
+
+/* --- Button Styles --- */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.live-link-btn, .github-link-btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.live-link-btn {
+    background-color: #ff4d4d; /* Primary accent color */
+    color: white;
+}
+
+.live-link-btn:hover {
+    background-color: #e63939;
+}
+
+.github-link-btn {
+    background-color: rgba(255, 255, 255, 0.05); /* Same as your card background */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.github-link-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .project-content-grid {
+        grid-template-columns: 1fr; /* Stack content columns on smaller screens */
+    }
+
+    .header, .project-container {
+        padding: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">M.Ahmed.Dev</a>
+        <nav class="nav-links">
+            <a href="index2.html#home">Home</a>
+            <a href="index2.html#projects" class="active">Projects</a>
+            <a href="index2.html#services">Services</a>
+            <a href="index2.html#about">About</a>
+        </nav>
+            <button class="contact-btn" onclick="window.location.href='index2.html#contact';">
+  Contact Us
+</button>
+    </header>
+
+    <main class="project-container">
+
+        <div class="project-header">
+            <h1 class="project-title">Food Delivery Website – WordPress + GloriaFood Integration</h1>
+            <p class="project-tagline">A modern food ordering website powered by WordPress and integrated with GloriaFood for seamless online orders, restaurant menu management, and real-time notifications. built with WordPress.</p>
+            <div class="project-meta">
+                <span>**Tech Stack:** WordPress</span>
+            </div>
+        </div>
+
+        <div class="project-content-grid">
+            
+            <section class="project-gallery">
+                <h2>Screenshots & Demos</h2>
+                <div class="main-image-wrapper">
+                    <img src="images/screencapture-restrofood-infinityfreeapp-2025-08-13-16_54_53.png" alt="Project Main View" class="main-screenshot">
+                </div>
+                
+                <div class="thumbnail-gallery">
+                    <img src="images/screencapture-restrofood-infinityfreeapp-about-us-2025-10-10-05_59_18.png" alt="Thumbnail 1">
+                    <img src="images/screencapture-restrofood-infinityfreeapp-contact-us-2025-10-10-06_00_15.png" alt="Thumbnail 2">
+                    <img src="images/screencapture-restrofood-infinityfreeapp-contact-us-2025-10-10-06_01_26.png" alt="Thumbnail 3">
+                </div>
+
+                <div class="action-buttons">
+                    <a href="https://restrofood.infinityfreeapp.com/" class="live-link-btn">🚀 View Live Project</a>
+                    <!-- <a href="#" class="github-link-btn">🛠️ GitHub Repo (Private)</a> -->
+                </div>
+            </section>
+
+            <section class="project-details">
+                <h2>Project Overview</h2>
+                <p>
+                  Built a food ordering website restrofood using WordPress and GloriaFood plugin. Features include cart system, delivery zone setup, order confirmation, and template customization for a seafood brand.
+                </p>
+                
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Add to Cart and Place Delivery Order Now functionality</li>
+                    <li>Live Order Confirmation system through GloriaFood</li>
+                    <li>Delivery Zone settings and restrictions</li>
+                    <li>Customized a seafood-themed template to match the brand</li>
+                    <li>Set up menus, categories, prices, and delivery time options</li>
+                </ul>
+
+                <h3>Challenges & Solutions</h3>
+                <p>
+                    A primary challenge was Add to Cart and Place Delivery Order Now functionality.
+                </p>
+            </section>
+        </div>
+
+    </main>
+    <script>
+    // Select main image and all thumbnails
+    const mainImage = document.querySelector('.main-screenshot');
+    const thumbnails = document.querySelectorAll('.thumbnail-gallery img');
+
+    thumbnails.forEach(thumbnail => {
+        thumbnail.addEventListener('click', () => {
+            // Change the main image src to the clicked thumbnail's src
+            mainImage.src = thumbnail.src;
+
+            // Optional: add active style to show which one is selected
+            thumbnails.forEach(img => img.style.opacity = '0.6');
+            thumbnail.style.opacity = '1';
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Mohid</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ⭐ Nayi CSS Line: Smooth Scrolling ke liye ⭐ */
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #0d0d0d, #1a1a1a);
+    color: white;
+
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.2);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: #ff4d4d;
+}
+
+.contact-btn {
+    background: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.contact-btn:hover {
+    background: #cc0000;
+}
+
+@media (max-width: 768px) {
+    .contact-btn {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+}
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+}
+
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 50px;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    max-width: 500px;
+}
+
+.hero-text .intro {
+    font-size: 18px;
+}
+
+.hero-text h1 {
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.hero-text h2 {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.hero-text .location {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* --- INFO CARDS SECTION FIX & RESPONSIVE CSS --- */
+
+.info-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 140px;
+    height: 180px; 
+    
+    /* Content Centering ke liye Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center */
+    justify-content: space-between; 
+}
+
+/* ⭐ Nayi Zaroori CSS Line: Headings ko center karne ke liye ⭐ */
+.card h3 {
+    text-align: center; 
+    margin-bottom: 10px;
+}
+
+/* Services Icons ko Center karne ke liye */
+.icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center;
+    gap: 5px;
+    flex-grow: 1; 
+}
+
+.icons i {
+    margin: 2px; 
+}
+
+/* Projects Image aur About Icon ke liye container */
+.card-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    flex-grow: 1; 
+}
+
+.about-icon {
+    font-size: 50px; 
+    color: red;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .info-cards {
+        justify-content: center; 
+        gap: 10px;
+    }
+
+    .card {
+        width: 30%; 
+        min-width: 100px; 
+        height: 150px; 
+        padding: 10px;
+    }
+    
+    .card h3 {
+        font-size: 14px; 
+    }
+}
+/* --- INFO CARDS SECTION END --- */
+
+
+.hero-image {
+    position: relative;
+}
+
+.circle-bg {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(255,0,0,0.2);
+    border-radius: 50%;
+    top: 20px;
+    left: 20px;
+    z-index: -1;
+}
+
+.hero-image img {
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 200px;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-bottom: 30px;
+    }
+
+}
+
+.about-section {
+    padding: 60px 50px;
+    background: linear-gradient(120deg, #0d0d0d, #1a1a1a);
+    color: white;
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1100px;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.about-image img {
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+.about-text h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 28px;
+    color: #ff4d4d;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: red;
+    transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        max-width: 100%;
+    }
+}
+
+.work-section {
+    background-color: #0d0d0d;
+    padding: 50px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitle {
+    color: red;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    color: #ffffff;
+}
+
+.description p {
+    color: #888;
+    font-size: 16px;
+    width: 300px;
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-button {
+    background-color: #333;
+    color: red;
+    border: 1px solid red;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: red;
+    color: #000;
+}
+
+.projects-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.project-card {
+    flex: 0 0 32.3%; 
+    border: 2px solid red;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+.project-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.view-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 10px 0;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.project-card:hover .view-btn {
+    opacity: 1;
+}
+
+
+/* --- Responsive CSS --- */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .description p {
+        width: 100%;
+    }
+
+    .project-card {
+        flex: 0 0 90%;
+    }
+}
+
+.experience-section {
+    background-color: #0d0d0d;
+    padding: 80px 50px;
+}
+
+/* Header style for experience section is the same as work-section */
+
+
+.experience-cards-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 80px;
+}
+
+.card {
+    /* Is card class ko info-cards ke card se alag rakha hai */
+    flex: 1;
+    background-color: #1a1a1a;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    /* Resetting the display properties set for info-cards */
+    display: block; 
+    height: auto;
+    width: auto;
+}
+
+.card-number {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 100px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.05);
+    z-index: 0;
+}
+
+.card-title {
+    color: red;
+    font-size: 14px;
+    margin: 0 0 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.card h3 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.card p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+}
+
+.card-line {
+    height: 2px;
+    width: 60px;
+    background-color: red;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.skills-container {
+    display: flex;
+    gap: 50px;
+}
+
+.skill-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.skill-item {
+    width: 100%;
+}
+
+.skill-item p {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.skill-item .percentage {
+    color: red;
+}
+
+.progress-bar-background {
+    width: 100%;
+    height: 5px;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: red;
+    transition: width 0.5s ease-in-out;
+}
+
+/* --- Responsive Design for Experience --- */
+@media (max-width: 992px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .description {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .experience-cards-container {
+        flex-direction: column;
+    }
+    .skills-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .experience-section {
+        padding: 50px 20px;
+    }
+    .title {
+        font-size: 36px;
+    }
+    /* Experience Cards ke liye */
+    .experience-cards-container .card {
+        padding: 30px;
+        width: 100%; 
+    }
+    .card-number {
+        font-size: 80px;
+    }
+}
+
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.contact-container {
+    display: flex;
+    width: 90%;
+    max-width: 1100px;
+    background-color: #333;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    margin: 20px auto;
+}
+
+.contact-info-card {
+    width: 40%;
+    background-color: black;
+    border-radius: 15px;
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.illustration {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.illustration img {
+    width: 150px;
+    height: auto;
+    border-radius: 20%;
+}
+
+.contact-info-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.contact-info-card p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.contact-details p {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.contact-details i {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.contact-info-card .social-icons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.contact-info-card .social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.contact-info-card .social-icons a:hover {
+    transform: scale(1.1);
+}
+
+.contact-form-section {
+    width: 60%;
+    padding: 50px 40px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.contact-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #33364f;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888;
+}
+
+.contact-form textarea {
+    resize: none;
+    height: 150px;
+}
+
+.contact-form button {
+    background-color: red;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #e55353;
+}
+
+/* --- Responsive Design for Contact --- */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .contact-info-card,
+    .contact-form-section {
+        width: 100%;
+        padding: 30px;
+    }
+    .contact-info-card {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* CSS */
+.footer {
+    background: linear-gradient(black,#333 );
+    color: #333;
+    padding: 40px 0 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-about {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.footer-about p {
+    font-size: 14px;
+    margin: 15px 0;
+    color: white;
+}
+
+.footer-slink a {
+    margin-right: 10px;
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-slink a:hover {
+    color: red;
+}
+
+.footer-links,
+.footer-contact {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin: 8px 0;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+
+.footer-links ul li a:hover {
+    color: red;
+}
+
+.footer-contact p {
+    font-size: 14px;
+    margin: 8px 0;
+    color: white;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    color: red;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    font-size: 13px;
+    color: white;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-about,
+    .footer-links,
+    .footer-contact {
+        min-width: 100%;
+    }
+
+    .footer-slink a {
+        font-size: 18px;
+        margin: 0 8px;
+    }
+
+    .footer-links h3,
+    .footer-contact h3 {
+        margin-top: 20px;
+    }
+}
+
+/* Font Awesome Icons */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">M.Ahmed.Dev</div>
+    <ul class="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about-me">About</a></li>
+    </ul>
+    <a href="#contact" class="contact-btn">Contact Us</a>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <p class="intro">Hey 👋 I’m</p>
+        <h1>M.AHMED</h1>
+        <h2>Passionate Web Developer</h2>
+        <p class="location">From Pakistan</p>
+
+        <div class="info-cards">
+            <div class="card">
+                <h3>Services</h3>
+                <div class="icons">
+                    <i class="devicon-wordpress-plain colored" style="font-size:30px;"></i>
+                    <i class="devicon-php-plain colored" style="font-size:30px;"></i>
+                    <i class="devicon-laravel-plain colored" style="font-size:30px;"></i>
+                    <i class="devicon-html5-plain colored" style="font-size:30px;"></i>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Projects</h3>
+                <div class="card-content"> 
+                    <img src="images/360_F_226149059_XaAkChkpfZfvmPPt.png" alt="Projects" style="width: 100px; height: 100px; border-radius: 20px;">
+                </div>
+            </div>
+            <div class="card">
+                <h3>About</h3>
+                <div class="card-content">
+                    <span class="about-icon">A</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <div class="circle-bg"></div>
+        <img src="images/Untitled.png" alt="Profile">
+    </div>
+</section>
+
+<section class="about-section" id="about-me">
+    <div class="about-container">
+        
+        <div class="about-image">
+            <img src="images/Untitled.png" alt="Founder" style="width: 300px; height: 300px;">
+        </div>
+
+        
+        <div class="about-text">
+            <h2>About Me.</h2>
+            <p>
+                ✨Hi, I'm Muhammed Ahmed, a passionate and dedicated Software Engineering student currently pursuing my diploma from Aptech.
+With a strong interest in technology and design, I’ve been actively learning and building skills in web development, including WordPress, PHP, and Laravel.
+            </p>
+            <p>
+                
+I handled both frontend (HTML, CSS, JavaScript) and backend development,
+and I’m currently diving deeper into Laravel framework to enhance my backend capabilities. I’m a quick learner, a team player, and someone who believes in continuous
+            </p>
+            <p>
+                My goal is to learn more skills, grow professionally, and contribute to real-world projects.
+Whether it’s building websites, designing user-friendly interfaces, or writing clean and efficient code
+I approach every task with creativity, responsibility, and a desire to learn more.
+            </p>
+            <div class="social-icons">
+                <a href="https://github.com/muhammedahmed321"><i class="devicon-github-original"></i></a>
+                <a href="https://www.linkedin.com/in/muhammedahmed544"><i class="devicon-linkedin-plain"></i></a>
+                <a href="https://www.facebook.com/Ahmed Kashmiri"><i class="devicon-facebook-plain"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="work-section" id="projects">
+    <div class="header">
+        <div class="titles">
+            <p class="subtitle">WEB DESIGNING SHOWCASE</p>
+            <h2 class="title">LASTET WORKING PROJECT</h2>
+        </div>
+        <div class="navigation">
+            <button class="nav-button prev-button">&larr;</button>
+            <button class="nav-button next-button">&rarr;</button>
+        </div>
+    </div>
+
+    <div class="projects-container">
+        <div class="project-card">
+            <img src="images/screencapture-iglasslondon-co-uk-2025-08-13-16_37_54.png" alt="Project 1" class="project-image">
+            <a href="Project1.html" class="view-btn">View Work</a>
+        </div>
+        <div class="project-card">
+            <img src="images/screencapture-restrofood-infinityfreeapp-2025-08-13-16_54_53.png" alt="Project 2" class="project-image">
+            <a href="project2.html" class="view-btn">View Work</a>
+        </div>
+        <div class="project-card">
+            <img src="images/Screenshot 2025-07-16 134849.png" alt="Project 3" class="project-image">
+            <a href="project3.html" class="view-btn">View Work</a>
+        </div>
+        <div class="project-card">
+            <img src="images/screencapture-localhost-E-book-2025-08-13-17_19_55.png" alt="Project 4" class="project-image">
+            <a href="project4.html" class="view-btn">View Work</a>
+        </div>
+        <div class="project-card">
+            <img src="images/screencapture-localhost-wordpress-2025-10-15-09_46_15.png" alt="Project 5" class="project-image">
+            <a href="project5.html" class="view-btn">View Work</a>
+        </div>
+        <!-- <div class="project-card">
+            <img src="https://i.ibb.co/1K4sNqC/work3.jpg" alt="Project 6" class="project-image">
+            <a href="project6.html" class="view-btn">View Work</a>
+        </div> -->
+    </div>
+</section>
+
+<section class="experience-section" id="services">
+    <div class="header">
+        <div class="header-text">
+            <p class="my-experience">MY EXPERIENCE</p>
+            <h2 class="title">EXPERIENCE AND SKILL</h2>
+        </div>
+    </div>
+
+    <div class="experience-cards-container">
+        <div class="card">
+            <div class="card-number">01</div>
+            <p class="card-title">2024 - 2025 (WEB DESIGNER)</p>
+            <h3>WORDPRESS & FRONTEND.</h3>
+            <p>This option is perfect if you have experience building websites from scratch using WordPress and frontend technologies.</p>
+            <div class="card-line"></div>
+        </div>
+        <div class="card">
+            <div class="card-number">02</div>
+            <p class="card-title">2024 - 2025 (WEB DESIGNER)</p>
+            <h3>PHP & LARAVEL.</h3>
+            <p>Use this example if you want to highlight your backend skills, even if they are more basic. It shows you're a well-rounded developer.</p>
+            <div class="card-line"></div>
+        </div>
+        <div class="card">
+            <div class="card-number">03</div>
+            <p class="card-title">2024 - 2025 (WEB DESIGNER)</p>
+            <h3>COMBINED SKILLS.</h3>
+            <p>This option is a great way to showcase a broad range of skills, emphasizing your versatility as a developer.</p>
+            <div class="card-line"></div>
+        </div>
+    </div>
+
+    <div class="skills-container">
+        <div class="skill-group">
+            <div class="skill-item">
+                <p>WORDPRESS DEVELOPER</p>
+                <p class="percentage">90%</p>
+                <div class="progress-bar-background"><div class="progress-bar" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <p>FRONTEND DEVELOPER</p>
+                <p class="percentage">72%</p>
+                <div class="progress-bar-background"><div class="progress-bar" style="width: 72%;"></div></div>
+            </div>
+        </div>
+        <div class="skill-group">
+            <div class="skill-item">
+                <p>PHP</p>
+                <p class="percentage">70%</p>
+                <div class="progress-bar-background"><div class="progress-bar" style="width: 70%;"></div></div>
+            </div>
+            <div class="skill-item">
+                <p>LARAVEL</p>
+                <p class="percentage">60%</p>
+                <div class="progress-bar-background"><div class="progress-bar" style="width: 60%;"></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="contact-container" id="contact">
+    <div class="contact-info-card">
+        <div class="info-content">
+            <div class="illustration">
+                <img src="images/Untitled.png" alt="Contact Illustration">
+            </div>
+            <h2>Contact Us</h2>
+            <p>
+                Got a Project? Tell Me About It! <hr>
+                <br>
+
+I value clarity and quick communication. Fill out the form below, and I'll get back to you within 24 hours with a personalized strategy.
+            </p>
+            <div class="contact-details">
+                <p><i class="fas fa-phone-alt"></i> +923333204767</p>
+                <p><i class="fas fa-envelope"></i> ahmedkashi857@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Karachi, Pakistan</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/Ahmed Kashmiri"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com/ahmed_kashmiri_2"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/muhammedahmed321"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="contact-form-section">
+        <form class="contact-form">
+            <div class="form-row">
+                <input type="text" placeholder="First Name">
+                <input type="text" placeholder="Last Name">
+            </div>
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div> -->
+
+    <div class="contact-form-section">
+    <div class="contact-form">
+        <div class="form-row">
+            <input type="text" id="firstName" placeholder="First Name">
+            <input type="text" id="lastName" placeholder="Last Name">
+        </div>
+        <input type="email" id="email" placeholder="Your Email (for reference)">
+        <textarea id="message" placeholder="Your Message"></textarea>
+        
+        <button type="button" onclick="sendWhatsAppMessage()">Send Message on WhatsApp</button>
+    </div>
+</div>
+
+<script>
+function sendWhatsAppMessage() {
+    
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    
+    const phoneNumber = '03333204767'; 
+
+   
+    const whatsappMessage = `
+*New Inquiry via Website:*
+
+*Name:* ${firstName} ${lastName}
+*Email:* ${email}
+
+*Message:*
+${message}
+    `.trim(); 
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    
+    const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    
+    window.open(whatsappLink, '_blank');
+}
+</script>
+
+</div>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <h2 class="footer-logo"> <span style="color:red;">&#9679;</span> M.Ahmed.Dev</h2>
+            <p>
+                Bringing visions to life through a blend of style and creativity.
+            </p>
+            <div class="footer-slink">
+                <a href="https://www.facebook.com/Ahmed Kashmiri"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/03333204767"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/ahmed_kashmiri_2"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/muhammedahmed544"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about-me">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-contact">
+            <h3>Contact</h3>
+            <p>Manzoor Colony Kashmir Plaza I sector Lucky Afridi Road</p>
+            <p>03333204767</p>
+            <p><a href="mailto:ahmedkashi857@gmail.com">ahmedkashi857@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© Copyright 2020 powered by Muhammed Ahmed</p>
+    </div>
+</footer>
+
+
+
+<script>
+    // Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.projects-container');
+    const nextButton = document.querySelector('.next-button');
+    const prevButton = document.querySelector('.prev-button');
+
+    if (container && nextButton && prevButton) {
+        nextButton.addEventListener('click', () => {
+            // Scroll by the width of one card plus the gap (approx 33% + 20px)
+            const cardWidth = container.querySelector('.project-card').offsetWidth;
+            const scrollAmount = cardWidth + 20; 
+            container.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        prevButton.addEventListener('click', () => {
+            const cardWidth = container.querySelector('.project-card').offsetWidth;
+            const scrollAmount = cardWidth + 20;
+            container.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+    }
+});
+</script>
+
+</body>
+</html>
